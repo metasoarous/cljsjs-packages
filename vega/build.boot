@@ -1,6 +1,7 @@
 (set-env!
  :resource-paths #{"resources"}
- :dependencies '[[cljsjs/boot-cljsjs "0.10.4" :scope "test"]])
+ :dependencies '[[org.clojure/clojurescript "1.10.597"]
+                 [cljsjs/boot-cljsjs "0.10.4" :scope "test"]])
 
 (require '[cljsjs.boot-cljsjs.packaging :refer :all])
 
@@ -22,10 +23,10 @@
     (download
      :url (format "https://unpkg.com/vega@%s/build/vega.min.js" +lib-version+)
      :checksum "16f8338449da83a0f1d8c79dbf4af042")
-   (sift :move {(re-pattern "^vega.js$") "cljsjs/development/vega.inc.js"
-                (re-pattern "^vega.min.js$") "cljsjs/production/vega.min.inc.js"})
-   (sift :include #{#"^cljsjs"})
-   (deps-cljs :name "cljsjs.vega")
-   (pom)
-   (jar)
-   (validate)))
+    (sift :move {(re-pattern "^vega.js$") "cljsjs/development/vega.inc.js"
+                 (re-pattern "^vega.min.js$") "cljsjs/production/vega.min.inc.js"})
+    (sift :include #{#"^cljsjs"})
+    (deps-cljs :name "cljsjs.vega")
+    (pom)
+    (jar)
+    (validate)))

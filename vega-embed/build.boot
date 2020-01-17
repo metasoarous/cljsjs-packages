@@ -1,6 +1,7 @@
 (set-env!
   :resource-paths #{"resources"}
-  :dependencies '[[cljsjs/boot-cljsjs "0.10.4" :scope "test"]
+  :dependencies '[[org.clojure/clojurescript "1.10.597"]
+                  [cljsjs/boot-cljsjs "0.10.4" :scope "test"]
                   [cljsjs/vega "5.4.0-0"]
                   [cljsjs/vega-lite "3.4.0-0"]])
 
